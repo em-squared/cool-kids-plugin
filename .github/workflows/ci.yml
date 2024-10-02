@@ -49,10 +49,6 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 20
 
-        env:
-            WP_ENV_PHP_VERSION: '8.3'
-            WP_ENV_CORE: '6.6.2'
-
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
