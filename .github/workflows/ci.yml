@@ -1,0 +1,25 @@
+name: Unit Tests && Coding Standards
+on: [push, pull_request]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: wp-env start
+        uses: godaddy-wordpress/setup-wp-env@v1
+        with:
+          core: 'WordPress/WordPress'
+          phpVersion: '8.3'
+          plugins: '["."]'
+
+      - name: Check Coding Standards
+        uses: php-actions/composer@v6
+        with:
+          command: check-code
+  
+      - name: Unit Tests
+        uses: php-actions/composer@v6
+        with:
+          command: tests

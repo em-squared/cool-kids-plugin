@@ -1,0 +1,46 @@
+{
+    "name": "em-squared/cool-kids-plugin",
+    "description": "A WordPress plugin for Cool Kids Network. A network where kids are really cool!",
+    "version": "1.0.0",
+    "keywords": [
+        "wordpress"
+    ],
+    "type": "wordpress-plugin",
+    "homepage": "https://github.com/em-squared/cool-kids-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maxime Moraine",
+            "homepage": "https://emsquared.me/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/em-squared/cool-kids-plugin/issues",
+        "source": "https://github.com/em-squared/cool-kids-plugin/"
+    },
+    "autoload": {
+        "psr-4": {
+            "CoolKids\\": "src/"
+        }
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "wp-coding-standards/wpcs": "*",
+        "phpunit/phpunit": "^8",
+        "yoast/phpunit-polyfills": "^2.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true
+        }
+    },
+    "scripts": {
+        "install-codestandards": [
+            "PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+        ],
+        "post-install-cmd": [
+            "@install-codestandards"
+        ]
+    }
+}

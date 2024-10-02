@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "wp-env": "wp-env",
+    "composer": "wp-env run cli --env-cwd=wp-content/plugins/cool-kids-plugin composer",
+    "composer:tests": "wp-env run tests-cli --env-cwd=wp-content/plugins/cool-kids-plugin composer",
+    "tests": "wp-env run tests-cli --env-cwd=wp-content/plugins/cool-kids-plugin ./vendor/bin/phpunit",
+    "check-code": "wp-env run tests-cli --env-cwd=wp-content/plugins/cool-kids-plugin ./vendor/bin/phpcs --standard=WordPress src",
+    "fix-code": "wp-env run tests-cli --env-cwd=wp-content/plugins/cool-kids-plugin ./vendor/bin/phpcbf --standard=WordPress src"
+  },
+  "devDependencies": {
+    "@wordpress/env": "^10.8.0"
+  }
+}
