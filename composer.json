@@ -18,12 +18,8 @@
         "issues": "https://github.com/em-squared/cool-kids-plugin/issues",
         "source": "https://github.com/em-squared/cool-kids-plugin/"
     },
-    "autoload": {
-        "psr-4": {
-            "CoolKids\\": "src/"
-        }
-    },
     "require-dev": {
+        "alleyinteractive/composer-wordpress-autoloader": "^1.1",
         "dealerdirect/phpcodesniffer-composer-installer": "*",
         "wp-coding-standards/wpcs": "*",
         "phpunit/phpunit": "^8",
@@ -32,7 +28,8 @@
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "composer/installers": true
+            "composer/installers": true,
+            "alleyinteractive/composer-wordpress-autoloader": true
         }
     },
     "scripts": {
@@ -42,5 +39,12 @@
         "post-install-cmd": [
             "@install-codestandards"
         ]
+    },
+    "extra": {
+        "wordpress-autoloader": {
+            "autoload": {
+                "CoolKids\\": "src/"
+            }
+        }
     }
 }
