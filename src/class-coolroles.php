@@ -1,6 +1,6 @@
 <?php
 /**
- * Main CoolRoles Class File
+ * CoolRoles Class File
  *
  * @class CoolRoles
  * @version 1.0.0
@@ -12,7 +12,7 @@
 namespace CoolKids;
 
 /**
- * Main CoolRoles Class
+ * CoolRoles Class
  *
  * @class CoolRoles
  * @version 1.0.0

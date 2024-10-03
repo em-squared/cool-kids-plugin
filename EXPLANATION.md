@@ -47,4 +47,14 @@ Before managing the registration, I need the new user roles: Cool Kid, Cooler Ki
 
 The new roles are defined in the `src/class-coolroles.php:CoolRoles` class. The class contains two static methods `activate()` and `deactivate()` being called respectively on plugin activation hook and deactivation hook. This way, the roles are added only on plugin activation, then remove on plugin deactivation when the site isn't cool anymore.
 
-The `tests/test-coolroles.php` checks that the roles are properly created on activation and remove on deactivation.
+The `tests/test-coolroles.php` test case checks that the roles are properly created on activation and remove on deactivation.
+
+Now that the new roles are created, I have to manage new cool kids registration. The `src/class-registration.php` class file handles it. It registers a new shortcode `[cool_kids_registration_form]` that will display a registration form with an email field and nonce field.
+
+The `is_valid_form_submission()` method checks if a form is properly submitted to handle new cool kid registration.
+
+The user creation is handled by the `process_registration()` method that calls the `get_random_user_data()` to generate user meta data from randomuser.me API.
+
+The `get_random_user_data()` handles various API failures then fall back to the `get_fallback_user_data()` that generates data in a cooler way.
+
+The `tests/test-registration` test case checks all steps in isolation. I had to use the `ReflectionClass` to access private methods independently and simulate successes and failures.

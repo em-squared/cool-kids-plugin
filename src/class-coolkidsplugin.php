@@ -19,6 +19,13 @@ namespace CoolKids;
  * @since 1.0.0
  */
 class CoolKidsPlugin {
+	/**
+	 * Registration variable
+	 *
+	 * @since 1.0.0
+	 * @var Registration.
+	 */
+	private $registration;
 
 	/**
 	 * Constructor function.
@@ -27,6 +34,7 @@ class CoolKidsPlugin {
 	 * @since   1.0.0
 	 */
 	public function __construct() {
+		$this->registration = new Registration();
 	}
 
 	/**
@@ -37,5 +45,6 @@ class CoolKidsPlugin {
 	 * @return void
 	 */
 	public function run(): void {
+		add_action( 'init', array( $this->registration, 'register_shortcode' ) );
 	}
 }
