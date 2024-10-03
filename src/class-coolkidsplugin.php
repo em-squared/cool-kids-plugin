@@ -34,7 +34,8 @@ class CoolKidsPlugin {
 	 *
 	 * @access  public
 	 * @since   1.0.0
+	 * @return void
 	 */
-	public function run() {
+	public function run(): void {
 	}
 }
