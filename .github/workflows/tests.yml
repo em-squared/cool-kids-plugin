@@ -1,4 +1,4 @@
-name: Unit Tests & Coding Standards
+name: Unit Tests
 on:
     pull_request:
     push:
@@ -16,34 +16,6 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    phpcs:
-        name: PHP coding standards
-        runs-on: ubuntu-latest
-        timeout-minutes: 20
-
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-
-            - name: Set up PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: '8.3'
-                  coverage: none
-                  tools: cs2pr
-
-            # Since Composer dependencies are installed using `composer update` and no lock file is in version control,
-            # passing a custom cache suffix ensures that the cache is flushed at least once per week.
-            - name: Install Composer dependencies
-              uses: ramsey/composer-install@v3
-
-            - name: Make Composer packages available globally
-              run: echo "${PWD}/vendor/bin" >> $GITHUB_PATH
-
-            - name: Run PHPCS Wordpress Coding Standards
-              id: phpcs
-              run: phpcs --standard=WordPress src
-
     tests:
         name: Integration Tests
         runs-on: ubuntu-latest

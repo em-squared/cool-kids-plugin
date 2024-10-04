@@ -49,7 +49,7 @@ The new roles are defined in the `src/class-coolroles.php:CoolRoles` class. The 
 
 The `tests/test-coolroles.php` test case checks that the roles are properly created on activation and remove on deactivation.
 
-Now that the new roles are created, I have to manage new cool kids registration. The `src/class-registration.php` class file handles it. It registers a new shortcode `[cool_kids_registration_form]` that will display a registration form with an email field and nonce field.
+Now that the new roles are created, I have to manage new cool kids registration. The `src/class-registration.php:Registration` class handles it. It registers a new shortcode `[cool_kids_registration_form]` that will display a registration form with an email field and nonce field.
 
 The `is_valid_form_submission()` method checks if a form is properly submitted to handle new cool kid registration.
 
