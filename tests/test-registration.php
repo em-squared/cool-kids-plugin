@@ -186,7 +186,7 @@ class RegistrationTest extends WP_UnitTestCase {
 		} );
 
 		$result = $method->invokeArgs( $this->registration, [ 'cool-email@kid.cool' ] );
-		$this->assertEquals( 'Cool! You are now registered! You can now log in!', $result );
+		$this->assertEquals( '<p>Cool! You are now registered! You can now log in!</p>', $result );
 
 		remove_all_filters( 'pre_http_request' );
 		remove_all_filters( 'wp_create_user' );

@@ -58,3 +58,12 @@ The user creation is handled by the `process_registration()` method that calls t
 The `get_random_user_data()` handles various API failures then fall back to the `get_fallback_user_data()` that generates data in a cooler way.
 
 The `tests/test-registration` test case checks all steps in isolation. I had to use the `ReflectionClass` to access private methods independently and simulate successes and failures.
+
+## User Story 2: Login and see self data
+I can register as a cool kid. Now I must log in to see how cool I am.
+
+Here is the case : I go to a profile page to see my data. If I'm not logged in, I get a login form to do so. Otherwise, I get my data.
+
+The `src/class-coolkiddata.php:CoolKidData` covers this feature with a shortcode that manages user data and login form depending the situation.
+
+The login form is not tested here as it is a bit out of the scope of this technical assessment, but it would be as the registration form tests.

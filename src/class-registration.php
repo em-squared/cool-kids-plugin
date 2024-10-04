@@ -100,11 +100,11 @@ class Registration {
 	 */
 	private function process_registration( $email ): string {
 		if ( ! is_email( $email ) ) {
-			return 'Invalid email address.';
+			return '<p>Invalid email address.</p>';
 		}
 
 		if ( email_exists( $email ) ) {
-			return 'Email address already registered.';
+			return '<p>Email address already registered.</p>';
 		}
 
 		try {
@@ -119,7 +119,7 @@ class Registration {
 
 		if ( is_wp_error( $user_id ) ) {
 			error_log( 'Cool Kids Plugin - User Creation Error: ' . $user_id->get_error_message() );
-			return 'Error creating user. Please try again later.';
+			return '<p>Error creating user. Please try again later.</p>';
 		}
 
 		$user = new \WP_User( $user_id );
@@ -129,7 +129,7 @@ class Registration {
 		update_user_meta( $user_id, 'last_name', $user_data['last_name'] );
 		update_user_meta( $user_id, 'country', $user_data['country'] );
 
-		return 'Cool! You are now registered! You can now log in!';
+		return '<p>Cool! You are now registered! You can now log in!</p>';
 	}
 
 	/**
