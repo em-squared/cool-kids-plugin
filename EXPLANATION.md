@@ -64,6 +64,13 @@ I can register as a cool kid. Now I must log in to see how cool I am.
 
 Here is the case : I go to a profile page to see my data. If I'm not logged in, I get a login form to do so. Otherwise, I get my data.
 
-The `src/class-coolkiddata.php:CoolKidData` covers this feature with a shortcode that manages user data and login form depending the situation.
+The `src/class-coolkiddata.php:CoolKidData` covers this feature with the `[cool_kids_user_data]` shortcode that manages user data and login form depending the situation.
 
 The login form is not tested here as it is a bit out of the scope of this technical assessment, but it would be as the registration form tests.
+
+## User Story 3 and 4: Display a list of cool kids
+I need to display a list of users if I am logged in at least as a Cooler Kid. The list must display Fistnames, Lastnames and Countries if I am a Cooler Kid. The list must display Emails et Roles additional fields if I am a Coolest Kid.
+
+The `src/class-coolkidlist.php:CoolKidList` class handles the list display via the `[cool_kids_list]` shortcode. If I am not logged in, the list does not display. If I am logged in as a Cool Kid, the shortcode informs me to be at least a Cooler Kid.
+
+If I am a Cooler Kid, the shortcode returns an HTML table with Firstname, Lastname and Country fields. If I am a Coolest Kid, the shortcode adds Email and Role columns.

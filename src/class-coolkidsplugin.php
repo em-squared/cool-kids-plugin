@@ -35,14 +35,22 @@ class CoolKidsPlugin {
 	private $cool_kid_data;
 
 	/**
+	 * List of Cool Kids
+	 *
+	 * @var CoolKidList
+	 */
+	private $cool_kid_list;
+
+	/**
 	 * Constructor function.
 	 *
 	 * @access  public
 	 * @since   1.0.0
 	 */
 	public function __construct() {
-		$this->registration  = new Registration();
+		$this->registration = new Registration();
 		$this->cool_kid_data = new CoolKidData();
+		$this->cool_kid_list = new CoolKidList();
 	}
 
 	/**
@@ -55,5 +63,6 @@ class CoolKidsPlugin {
 	public function run(): void {
 		add_action( 'init', array( $this->registration, 'register_shortcode' ) );
 		add_action( 'init', array( $this->cool_kid_data, 'register_shortcode' ) );
+		add_action( 'init', array( $this->cool_kid_list, 'register_shortcode' ) );
 	}
 }
