@@ -11,3 +11,6 @@ npm run composer install
 ```
 npm run tests
 ```
+
+## 3. Live demo
+[https://cool-kids-network.emsquared.me/](https://cool-kids-network.emsquared.me/)
