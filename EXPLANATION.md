@@ -81,3 +81,11 @@ To add a REST API Endpoint to WordPress, I need first to register a route. See t
 The route here is: `/wp-json/cool-kids/v1/update-role`. It calls the `update_role` method and require an authenticated request with a user that can manage options, like an admin via the `check_permissions` method.
 
 The `get_user` method retrieves the user from the email param or first_name and last_name params with errors handling.
+
+To make a request, you can use cURL:
+```
+curl --user "admin:password" \
+     -X POST https://cool-kids-network.emsquared.me/wp-json/cool-kids/v1/update-role/ \
+     -H "Content-Type: application/json" \
+     -d '{"email": "cool-email+1@kid.cool", "role": "coolest-kid"}'
+```
