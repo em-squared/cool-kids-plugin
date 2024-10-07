@@ -44,4 +44,14 @@ class CoolRoles {
 		remove_role( self::COOLER_KID );
 		remove_role( self::COOLEST_KID );
 	}
+
+	/**
+	 * List of valid roles for API purpose
+	 *
+	 * @since 1.0.0
+	 * @return string[]
+	 */
+	public static function get_valid_roles(): array {
+		return array( self::COOL_KID, self::COOLER_KID, self::COOLEST_KID );
+	}
 }

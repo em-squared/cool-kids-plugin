@@ -74,3 +74,10 @@ I need to display a list of users if I am logged in at least as a Cooler Kid. Th
 The `src/class-coolkidlist.php:CoolKidList` class handles the list display via the `[cool_kids_list]` shortcode. If I am not logged in, the list does not display. If I am logged in as a Cool Kid, the shortcode informs me to be at least a Cooler Kid.
 
 If I am a Cooler Kid, the shortcode returns an HTML table with Firstname, Lastname and Country fields. If I am a Coolest Kid, the shortcode adds Email and Role columns.
+
+## User Story 5: Add a REST API Endpoint to update user role
+To add a REST API Endpoint to WordPress, I need first to register a route. See the `src/api/class-roleendpoint.php:RoleEndpoint::register_routes()` method.
+
+The route here is: `/wp-json/cool-kids/v1/update-role`. It calls the `update_role` method and require an authenticated request with a user that can manage options, like an admin via the `check_permissions` method.
+
+The `get_user` method retrieves the user from the email param or first_name and last_name params with errors handling.

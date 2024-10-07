@@ -38,7 +38,6 @@ class CoolKidsPluginTest extends WP_UnitTestCase {
 
 		// If the activation throws errors, the activation returns a WP_Error object.
 		$activation_result = activate_plugin( $this->plugin_slug );
-		error_log( $activation_result );
 
 		// If null, there is no errors.
 		$this->assertNull( $activation_result );

@@ -40,7 +40,7 @@ class CoolKidList {
 	 */
 	public function display_cool_kid_list(): string {
 		if ( ! is_user_logged_in() ) {
-			return "<p>You must be logged in.</p>";
+			return '<p>You must be logged in.</p>';
 		}
 
 		$current_user = wp_get_current_user();
@@ -48,7 +48,7 @@ class CoolKidList {
 		// If the user is not a Cooler Kid or a Coolest Kid, don't show the list.
 		// Yes, even if they are an administrator. Administrators are no cool.
 		if ( CoolRoles::COOLER_KID !== $current_user->roles[0] && CoolRoles::COOLEST_KID !== $current_user->roles[0] ) {
-			return "<p>You must be at least a Cooler Kid to see this.</p>";
+			return '<p>You must be at least a Cooler Kid to see this.</p>';
 		}
 
 		$output = $this->user_list( $current_user );
@@ -67,7 +67,7 @@ class CoolKidList {
 		// Get only cool users.
 		$cool_users = get_users( array( 'role__in' => array( CoolRoles::COOL_KID, CoolRoles::COOLER_KID, CoolRoles::COOLEST_KID ) ) );
 
-		$output = "<h2>All Cool Kids</h2>";
+		$output  = '<h2>All Cool Kids</h2>';
 		$output .= '
             <table style="width:100%;">
                 <thead style="text-align:left;">
@@ -78,24 +78,24 @@ class CoolKidList {
         ';
 
 		if ( in_array( CoolRoles::COOLEST_KID, $current_user->roles ) ) {
-			$output .= "
+			$output .= '
                         <th>Email</th>
                         <th>Role</th>
-            ";
+            ';
 		}
 
-		$output .= "
+		$output .= '
                     </tr>
                 </thead>
                 <tbody>
-        ";
+        ';
 
 		foreach ( $cool_users as $cool_user ) {
 			$output .= "
                     <tr>
                         <td>{$cool_user->first_name}</td>
                         <td>{$cool_user->last_name}</td>
-                        <td>" . get_user_meta( $cool_user->ID, 'country', true ) . "</td>";
+                        <td>" . get_user_meta( $cool_user->ID, 'country', true ) . '</td>';
 
 			if ( in_array( CoolRoles::COOLEST_KID, $current_user->roles ) ) {
 				$output .= "
@@ -103,13 +103,12 @@ class CoolKidList {
                         <td>{$cool_user->roles[0]}</td>
                 ";
 			}
-
 		}
 
-		$output .= "
+		$output .= '
                 </tbody>
             </table>
-        ";
+        ';
 
 		return $output;
 	}
